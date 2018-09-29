@@ -1,0 +1,26 @@
+{
+  "name": "@writetome51/open-array-item-getter-remover",
+  "version": "1.0.0",
+  "description": "an array-manipulating typescript/javascript class that removes and returns items in the array",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "array",
+    "manipulation",
+    "typescript",
+    "class"
+  ],
+  "author": "Steve Thompson",
+  "license": "MIT",
+  "dependencies": {
+    "basic-data-handling": "latest",
+    "@writetome51/adjacent-to-value-info-interface": "latest",
+    "@writetome51/array-get-and-removers-basic": "latest",
+    "@writetome51/array-get-and-removers-filtered-results-duplicates": "latest",
+    "@writetome51/array-get-and-remove-all-before-or-after-public": "latest",
+    "@writetome51/open-array-container": "latest",
+    "@writetome51/array-get-and-remove-adjacent-to-value": "latest"
+  }
+}
