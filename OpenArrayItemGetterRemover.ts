@@ -4,7 +4,7 @@ import { getAndRemoveAdjacentAt } from '@writetome51/array-get-and-removers-basi
 import { getAndRemoveHead } from '@writetome51/array-get-and-removers-basic/getAndRemoveHead';
 import { getAndRemoveTail } from '@writetome51/array-get-and-removers-basic/getAndRemoveTail';
 import { getAndRemoveItem } from '@writetome51/array-get-and-removers-basic/getAndRemoveItem';
-import {getAndRemoveMiddle} from '@writetome51/array-get-and-removers-basic/getAndRemoveMiddle';
+import { getAndRemoveMiddle } from '@writetome51/array-get-and-removers-basic/getAndRemoveMiddle';
 import { getAndRemoveAllAfterFirst }
 	from '@writetome51/array-get-and-remove-all-before-or-after-public/getAndRemoveAllAfterFirst';
 import { getAndRemoveAllBeforeFirst }

@@ -21,6 +21,7 @@
     "@writetome51/array-get-and-removers-filtered-results-duplicates": "latest",
     "@writetome51/array-get-and-remove-all-before-or-after-public": "latest",
     "@writetome51/open-array-container": "latest",
-    "@writetome51/array-get-and-remove-adjacent-to-value": "latest"
+    "@writetome51/array-get-and-remove-adjacent-to-value": "latest",
+    "@writetome51/arrays-match": "latest"
   }
 }
