@@ -1,6 +1,6 @@
 {
   "name": "@writetome51/open-array-item-getter-remover",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "an array-manipulating typescript/javascript class that removes and returns items in the array",
   "main": "",
   "scripts": {
