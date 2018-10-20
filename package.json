@@ -2,7 +2,7 @@
   "name": "@writetome51/open-array-item-getter-remover",
   "version": "1.0.1",
   "description": "an array-manipulating typescript/javascript class that removes and returns items in the array",
-  "main": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,14 +14,21 @@
   ],
   "author": "Steve Thompson",
   "license": "MIT",
+  "devDependencies": {
+    "@writetome51/arrays-match": "latest"
+  },
   "dependencies": {
     "basic-data-handling": "latest",
     "@writetome51/adjacent-to-value-info-interface": "latest",
-    "@writetome51/array-get-and-removers-basic": "latest",
-    "@writetome51/array-get-and-removers-filtered-results-duplicates": "latest",
-    "@writetome51/array-get-and-remove-all-before-or-after-public": "latest",
-    "@writetome51/open-array-container": "latest",
+    "@writetome51/array-get-and-remove-adjacent-at": "latest",
     "@writetome51/array-get-and-remove-adjacent-to-value": "latest",
-    "@writetome51/arrays-match": "latest"
+    "@writetome51/array-get-and-remove-between": "latest",
+    "@writetome51/array-get-and-remove-head-tail": "latest",
+    "@writetome51/array-get-and-remove-item": "latest",
+    "@writetome51/array-get-and-remove-all-after": "latest",
+    "@writetome51/array-get-and-remove-all-before": "latest",
+    "@writetome51/array-get-and-remove-filtered-results": "latest",
+    "@writetome51/array-get-and-remove-duplicates": "latest",
+    "@writetome51/open-array-container": "latest"
   }
 }

@@ -1,24 +1,22 @@
 import { isArray } from 'basic-data-handling/isArray_notArray';
 import { IAdjacentToValueInfo } from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
-import { getAndRemoveAdjacentAt } from '@writetome51/array-get-and-removers-basic/getAndRemoveAdjacentAt';
-import { getAndRemoveHead } from '@writetome51/array-get-and-removers-basic/getAndRemoveHead';
-import { getAndRemoveTail } from '@writetome51/array-get-and-removers-basic/getAndRemoveTail';
-import { getAndRemoveItem } from '@writetome51/array-get-and-removers-basic/getAndRemoveItem';
-import { getAndRemoveMiddle } from '@writetome51/array-get-and-removers-basic/getAndRemoveMiddle';
-import { getAndRemoveAllAfterFirst }
-	from '@writetome51/array-get-and-remove-all-before-or-after-public/getAndRemoveAllAfterFirst';
-import { getAndRemoveAllBeforeFirst }
-	from '@writetome51/array-get-and-remove-all-before-or-after-public/getAndRemoveAllBeforeFirst';
-import { getAndRemoveAllAfterLast }
-	from '@writetome51/array-get-and-remove-all-before-or-after-public/getAndRemoveAllAfterLast';
-import { getAndRemoveAllBeforeLast }
-	from '@writetome51/array-get-and-remove-all-before-or-after-public/getAndRemoveAllBeforeLast';
+import { getAndRemoveAdjacentAt } from '@writetome51/array-get-and-remove-adjacent-at/getAndRemoveAdjacentAt';
 import { getAndRemoveAdjacentToValue }
 	from '@writetome51/array-get-and-remove-adjacent-to-value/getAndRemoveAdjacentToValue';
-import { getAndRemoveFilteredResults }
-	from '@writetome51/array-get-and-removers-filtered-results-duplicates/getAndRemoveFilteredResults';
-import { getAndRemoveDuplicates }
-	from '@writetome51/array-get-and-removers-filtered-results-duplicates/getAndRemoveDuplicates';
+import { getAndRemoveBetween } from '@writetome51/array-get-and-remove-between';
+import { getAndRemoveHead } from '@writetome51/array-get-and-remove-head-tail/getAndRemoveHead';
+import { getAndRemoveTail } from '@writetome51/array-get-and-remove-head-tail/getAndRemoveTail';
+import { getAndRemoveItem } from '@writetome51/array-get-and-remove-item';
+import { getAndRemoveAllAfterFirst }
+	from '@writetome51/array-get-and-remove-all-after/getAndRemoveAllAfterFirst';
+import { getAndRemoveAllAfterLast }
+	from '@writetome51/array-get-and-remove-all-after/getAndRemoveAllAfterLast';
+import { getAndRemoveAllBeforeFirst }
+	from '@writetome51/array-get-and-remove-all-before/getAndRemoveAllBeforeFirst';
+import { getAndRemoveAllBeforeLast }
+	from '@writetome51/array-get-and-remove-all-before/getAndRemoveAllBeforeLast';
+import { getAndRemoveFilteredResults } from '@writetome51/array-get-and-remove-filtered-results';
+import { getAndRemoveDuplicates } from '@writetome51/array-get-and-remove-duplicates';
 import { OpenArrayContainer } from '@writetome51/open-array-container/OpenArrayContainer';
 
 
@@ -49,8 +47,8 @@ export class OpenArrayItemGetterRemover extends OpenArrayContainer {
 	}
 
 
-	middle(numItemsToKeepAtEachEnd): any[] {
-		return getAndRemoveMiddle(numItemsToKeepAtEachEnd, this.data);
+	between(numItemsToKeepAtEachEnd): any[] {
+		return getAndRemoveBetween(numItemsToKeepAtEachEnd, this.data);
 	}
 
 
@@ -61,7 +59,7 @@ export class OpenArrayItemGetterRemover extends OpenArrayContainer {
 	}
 
 
-	// info = {value: anyExceptObject, offset: number, howMany: number}
+	// info = {value: anyExceptObject,  offset: integer,  howMany: integer greater than zero}
 	adjacentToValue(info: IAdjacentToValueInfo): any[] {
 		return getAndRemoveAdjacentToValue(info, this.data);
 	}
@@ -94,23 +92,19 @@ export class OpenArrayItemGetterRemover extends OpenArrayContainer {
 	}
 
 
-	// testFunction has same signature as callback passed to array.filter():
+	// testFunction = function(currentValue, currentIndex, theArray){...}
+	// testFunction must return boolean.
 	byTest(testFunction): any[] {
 		return getAndRemoveFilteredResults(testFunction, this.data);
 	}
 
 
 	byType(type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'): any[] {
-		if (type === 'array') {
-			return this.byTest((item) => {
-				return (isArray(item));
-			});
-		}
-		else {
-			return this.byTest((item) => {
-				return (typeof item === type);
-			});
-		}
+		// @ts-ignore
+		type = type.toLowerCase();
+		if (type === 'array') return this.byTest((item) => isArray(item));
+
+		else return this.byTest((item) => typeof item === type);
 	}
 
 
