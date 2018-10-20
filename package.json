@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/writetome51/open-array-item-getter-remover.git"
+  },
   "keywords": [
     "array",
     "manipulation",
@@ -14,6 +18,10 @@
   ],
   "author": "Steve Thompson",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/writetome51/open-array-item-getter-remover/issues"
+  },
+  "homepage": "https://github.com/writetome51/open-array-item-getter-remover#readme",
   "devDependencies": {
     "@writetome51/arrays-match": "latest"
   },
