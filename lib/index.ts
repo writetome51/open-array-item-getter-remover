@@ -1,4 +1,5 @@
 import { isArray } from 'basic-data-handling/isArray_notArray';
+import { errorIfNotString } from 'basic-data-handling/errorIfNotString';
 import { IAdjacentToValueInfo } from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
 import { getAndRemoveAdjacentAt } from '@writetome51/array-get-and-remove-adjacent-at/getAndRemoveAdjacentAt';
 import { getAndRemoveAdjacentToValue }
@@ -17,13 +18,13 @@ import { getAndRemoveAllBeforeLast }
 	from '@writetome51/array-get-and-remove-all-before/getAndRemoveAllBeforeLast';
 import { getAndRemoveFilteredResults } from '@writetome51/array-get-and-remove-filtered-results';
 import { getAndRemoveDuplicates } from '@writetome51/array-get-and-remove-duplicates';
-import { OpenArrayContainer } from '@writetome51/open-array-container/OpenArrayContainer';
+import { PublicArrayContainer } from '@writetome51/public-array-container';
 
 
-export class OpenArrayItemGetterRemover extends OpenArrayContainer {
+export class PublicArrayItemGetterRemover extends PublicArrayContainer {
 
 
-	constructor(data = []) {
+	constructor(data: any[] = []) {
 		super(data);
 	}
 
@@ -92,14 +93,13 @@ export class OpenArrayItemGetterRemover extends OpenArrayContainer {
 	}
 
 
-	// testFunction = function(currentValue, currentIndex, theArray){...}
-	// testFunction must return boolean.
-	byTest(testFunction): any[] {
+	byTest(testFunction: (currentValue, currentIndex?, array?) => boolean): any[] {
 		return getAndRemoveFilteredResults(testFunction, this.data);
 	}
 
 
 	byType(type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'): any[] {
+		errorIfNotString(type);
 		// @ts-ignore
 		type = type.toLowerCase();
 		if (type === 'array') return this.byTest((item) => isArray(item));

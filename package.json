@@ -1,14 +1,15 @@
 {
-  "name": "@writetome51/open-array-item-getter-remover",
+  "name": "@writetome51/public-array-item-getter-remover",
   "version": "1.0.2",
   "description": "an array-manipulating typescript/javascript class that removes and returns items in the array",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/writetome51/open-array-item-getter-remover.git"
+    "url": "git+https://github.com/writetome51/public-array-item-getter-remover.git"
   },
   "keywords": [
     "array",
@@ -19,11 +20,12 @@
   "author": "Steve Thompson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/writetome51/open-array-item-getter-remover/issues"
+    "url": "https://github.com/writetome51/public-array-item-getter-remover/issues"
   },
-  "homepage": "https://github.com/writetome51/open-array-item-getter-remover#readme",
+  "homepage": "https://github.com/writetome51/public-array-item-getter-remover#readme",
   "devDependencies": {
-    "@writetome51/arrays-match": "latest"
+    "@writetome51/arrays-match": "latest",
+    "typescript": "^3.0.1"
   },
   "dependencies": {
     "basic-data-handling": "latest",
@@ -37,6 +39,6 @@
     "@writetome51/array-get-and-remove-all-before": "latest",
     "@writetome51/array-get-and-remove-filtered-results": "latest",
     "@writetome51/array-get-and-remove-duplicates": "latest",
-    "@writetome51/open-array-container": "latest"
+    "@writetome51/public-array-container": "latest"
   }
 }

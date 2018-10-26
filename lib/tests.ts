@@ -1,8 +1,8 @@
-import { OpenArrayItemGetterRemover } from './OpenArrayItemGetterRemover';
-import { arraysMatch } from '@writetome51/arrays-match/arraysMatch';
+import { PublicArrayItemGetterRemover } from './index';
+import { arraysMatch } from '@writetome51/arrays-match';
 
 
-let getAndRemove = new OpenArrayItemGetterRemover([1, 1, 2, 3, 3, 4, 5, 5, 6, 7, 8, 9, 10]);
+let getAndRemove = new PublicArrayItemGetterRemover([1, 1, 2, 3, 3, 4, 5, 5, 6, 7, 8, 9, 10]);
 
 let otherArr = getAndRemove.data;
 
