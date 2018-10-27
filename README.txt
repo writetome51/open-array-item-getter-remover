@@ -53,8 +53,12 @@ the array.  These are all of them:
 	duplicates(): any[]
 
 
+	// These last 2 methods both return an array of objects that match this interface:
+    // {value: any,  index: number}
+    //
+    // Each object represents a removed item and its index.
+
     // Gets and removes any value that passes test:
-	byTest(testFunction: (currentValue, currentIndex?, array?) => boolean): any[]
+	byTest(testFunction: (currentValue, currentIndex?, array?) => boolean): object[]
 
-
-	byType(type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'): any[]
+	byType(type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'): object[]

@@ -93,12 +93,17 @@ export class PublicArrayItemGetterRemover extends PublicArrayContainer {
 	}
 
 
-	byTest(testFunction: (currentValue, currentIndex?, array?) => boolean): any[] {
+	// These last 2 methods both return an array of objects that match this interface:
+	// {value: any,  index: number}
+	//
+	// Each object represents a removed item and its index.
+
+	byTest(testFunction: (currentValue, currentIndex?, array?) => boolean): object[] {
 		return getAndRemoveFilteredResults(testFunction, this.data);
 	}
 
 
-	byType(type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'): any[] {
+	byType(type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'): object[] {
 		errorIfNotString(type);
 		// @ts-ignore
 		type = type.toLowerCase();
