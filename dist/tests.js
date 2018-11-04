@@ -5,7 +5,7 @@ var arrays_match_1 = require("@writetome51/arrays-match");
 var getAndRemove = new index_1.PublicArrayItemGetterRemover([1, 1, 2, 3, 3, 4, 5, 5, 6, 7, 8, 9, 10]);
 var otherArr = getAndRemove.data;
 // Test 1
-var result = getAndRemove.item(-1);
+var result = getAndRemove.byIndex(-1);
 if (result === 10)
     console.log('test 1 passed');
 else
@@ -35,7 +35,7 @@ else
 getAndRemove.data = [1, 1, 2, 3, 3, 4, 5, 5, 6, 7, 8, 9, 10];
 otherArr = getAndRemove.data;
 result = getAndRemove.tail(4);
-if (arrays_match_1.arraysMatch(result, [7, 8, 9, 10]))
+if (arrays_match_1.arraysMatch(result, [7, 8, 9, 10]) && arrays_match_1.arraysMatch(getAndRemove.data, [1, 1, 2, 3, 3, 4, 5, 5, 6]))
     console.log('test 5 passed');
 else
     console.log('test 5 FAILED');

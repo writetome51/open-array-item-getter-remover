@@ -7,7 +7,7 @@ let getAndRemove = new PublicArrayItemGetterRemover([1, 1, 2, 3, 3, 4, 5, 5, 6, 
 let otherArr = getAndRemove.data;
 
 // Test 1
-let result = getAndRemove.item(-1);
+let result = getAndRemove.byIndex(-1);
 if (result === 10) console.log('test 1 passed');
 else console.log('test 1 FAILED');
 
@@ -35,7 +35,8 @@ else console.log('test 4 FAILED');
 getAndRemove.data = [1, 1, 2, 3, 3, 4, 5, 5, 6, 7, 8, 9, 10];
 otherArr = getAndRemove.data;
 result = getAndRemove.tail(4);
-if (arraysMatch(result, [7, 8, 9, 10])) console.log('test 5 passed');
+if (arraysMatch(result, [7, 8, 9, 10]) && arraysMatch(getAndRemove.data, [1, 1, 2, 3, 3, 4, 5, 5, 6]))
+	console.log('test 5 passed');
 else console.log('test 5 FAILED');
 
 
@@ -121,7 +122,6 @@ if (arraysMatch(getAndRemove.data, otherArr)) console.log('test 18 passed');
 else console.log('test 18 FAILED');
 
 
-
 // Test 19
 getAndRemove.data = [1, 1, 2, 3, 3, 4, 5, 5, 6, 7, 8, 9, 10];
 otherArr = getAndRemove.data;
@@ -155,7 +155,7 @@ result = getAndRemove.byTest((item) => {
 	return item < 2;
 });
 if (result.length === 2 && result[0]['value'] === 1 && result[1]['value'] === 1 &&
-	result[0]['index'] === 0 && result[1]['index'] === 1 )
+	result[0]['index'] === 0 && result[1]['index'] === 1)
 	console.log('test 23 passed');
 else console.log('test 23 FAILED');
 
@@ -170,7 +170,7 @@ getAndRemove.data = [1, 1, 2, 3, 3, 4, 5, 5, 6, 7, 8, 9, 10, 'a', 'b'];
 otherArr = getAndRemove.data;
 result = getAndRemove.byType('string');
 if (result.length === 2 && result[0]['value'] === 'a' && result[1]['value'] === 'b' &&
-	result[0]['index'] === 13 && result[1]['index'] === 14 ) console.log('test 25 passed');
+	result[0]['index'] === 13 && result[1]['index'] === 14) console.log('test 25 passed');
 else console.log('test 25 FAILED');
 
 

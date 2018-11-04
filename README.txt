@@ -19,7 +19,7 @@ the array.  These are all of them:
 
 
     // index can be negative or positive.
-	item(index): any
+	byIndex(index): any
 
 
 	head(numItemsToRemove): any[]
@@ -53,12 +53,18 @@ the array.  These are all of them:
 	duplicates(): any[]
 
 
-	// These last 2 methods both return an array of objects that match this interface:
-    // {value: any,  index: number}
-    //
-    // Each object represents a removed item and its index.
+	/************
+    These last 2 methods both return an array of IValueIndexPairs.  A IValueIndexPair looks like this:
+
+    	 {value: any,  index: number}
+
+    Each one represents a removed item.
+    ************/
 
     // Gets and removes any value that passes test:
-	byTest(testFunction: (currentValue, currentIndex?, array?) => boolean): object[]
+	byTest(testFunction: (currentValue, currentIndex?, array?) => boolean): IValueIndexPair[]
 
-	byType(type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'): object[]
+
+	byType(
+	    type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'
+	): IValueIndexPair[]

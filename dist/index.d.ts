@@ -1,4 +1,5 @@
 import { IAdjacentToValueInfo } from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
+import { IValueIndexPair } from 'value-index-pair-interface/IValueIndexPair';
 import { PublicArrayContainer } from '@writetome51/public-array-container';
 
 
@@ -6,7 +7,7 @@ export declare class PublicArrayItemGetterRemover extends PublicArrayContainer {
 	constructor(data?: any[]);
 
 
-	item(index: any): any;
+	byIndex(index: any): any;
 
 
 	head(numItemsToRemove: any): any[];
@@ -39,8 +40,14 @@ export declare class PublicArrayItemGetterRemover extends PublicArrayContainer {
 	duplicates(): any[];
 
 
-	byTest(testFunction: (currentValue: any, currentIndex?: any, array?: any) => boolean): object[];
+	/************
+	 These last 2 methods both return an array of IValueIndexPairs.  A IValueIndexPair looks like this:
+	 {value: any,  index: number}
+
+	 Each one represents a removed item.
+	 ************/
+	byTest(testFunction: (currentValue: any, currentIndex?: any, array?: any) => boolean): IValueIndexPair[];
 
 
-	byType(type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'): object[];
+	byType(type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'): IValueIndexPair[];
 }

@@ -1,6 +1,7 @@
 import { isArray } from 'basic-data-handling/isArray_notArray';
 import { errorIfNotString } from 'basic-data-handling/errorIfNotString';
 import { IAdjacentToValueInfo } from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
+import { IValueIndexPair } from 'value-index-pair-interface/IValueIndexPair';
 import { getAndRemoveAdjacentAt } from '@writetome51/array-get-and-remove-adjacent-at/getAndRemoveAdjacentAt';
 import { getAndRemoveAdjacentToValue }
 	from '@writetome51/array-get-and-remove-adjacent-to-value/getAndRemoveAdjacentToValue';
@@ -93,17 +94,21 @@ export class PublicArrayItemGetterRemover extends PublicArrayContainer {
 	}
 
 
-	// These last 2 methods both return an array of objects that match this interface:
-	// {value: any,  index: number}
-	//
-	// Each object represents a removed item and its index.
+	/************
+	 These last 2 methods both return an array of IValueIndexPairs.  A IValueIndexPair looks like this:
+	 {value: any,  index: number}
 
-	byTest(testFunction: (currentValue, currentIndex?, array?) => boolean): object[] {
+	 Each one represents a removed item.
+	 ************/
+
+	byTest(testFunction: (currentValue, currentIndex?, array?) => boolean): IValueIndexPair[] {
 		return getAndRemoveFilteredResults(testFunction, this.data);
 	}
 
 
-	byType(type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'): object[] {
+	byType(
+		type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'
+	): IValueIndexPair[] {
 		errorIfNotString(type);
 		// @ts-ignore
 		type = type.toLowerCase();

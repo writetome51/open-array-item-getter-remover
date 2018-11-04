@@ -72,10 +72,12 @@ var PublicArrayItemGetterRemover = /** @class */ (function (_super) {
     PublicArrayItemGetterRemover.prototype.duplicates = function () {
         return array_get_and_remove_duplicates_1.getAndRemoveDuplicates(this.data);
     };
-    // These last 2 methods both return an array of objects that match this interface:
-    // {value: any,  index: number}
-    //
-    // Each object represents a removed item and its index.
+    /************
+     These last 2 methods both return an array of IValueIndexPairs.  A IValueIndexPair looks like this:
+     {value: any,  index: number}
+
+     Each one represents a removed item.
+     ************/
     PublicArrayItemGetterRemover.prototype.byTest = function (testFunction) {
         return array_get_and_remove_filtered_results_1.getAndRemoveFilteredResults(testFunction, this.data);
     };

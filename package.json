@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "basic-data-handling": "latest",
+    "value-index-pair-interface": "latest",
     "@writetome51/adjacent-to-value-info-interface": "latest",
     "@writetome51/array-get-and-remove-adjacent-at": "latest",
     "@writetome51/array-get-and-remove-adjacent-to-value": "latest",
