@@ -14,6 +14,10 @@
   "keywords": [
     "array",
     "manipulation",
+    "get",
+    "remove",
+    "items",
+    "item",
     "typescript",
     "class"
   ],
