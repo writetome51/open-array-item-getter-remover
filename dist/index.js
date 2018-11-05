@@ -21,6 +21,7 @@ var array_get_and_remove_between_1 = require("@writetome51/array-get-and-remove-
 var getAndRemoveHead_1 = require("@writetome51/array-get-and-remove-head-tail/getAndRemoveHead");
 var getAndRemoveTail_1 = require("@writetome51/array-get-and-remove-head-tail/getAndRemoveTail");
 var array_get_and_remove_by_index_1 = require("@writetome51/array-get-and-remove-by-index");
+var array_get_and_remove_by_indexes_1 = require("@writetome51/array-get-and-remove-by-indexes");
 var getAndRemoveAllAfterFirst_1 = require("@writetome51/array-get-and-remove-all-after/getAndRemoveAllAfterFirst");
 var getAndRemoveAllAfterLast_1 = require("@writetome51/array-get-and-remove-all-after/getAndRemoveAllAfterLast");
 var getAndRemoveAllBeforeFirst_1 = require("@writetome51/array-get-and-remove-all-before/getAndRemoveAllBeforeFirst");
@@ -38,6 +39,10 @@ var PublicArrayItemGetterRemover = /** @class */ (function (_super) {
     // index can be negative or positive.
     PublicArrayItemGetterRemover.prototype.byIndex = function (index) {
         return array_get_and_remove_by_index_1.getAndRemoveByIndex(index, this.data);
+    };
+    // indexes can be negative or positive.
+    PublicArrayItemGetterRemover.prototype.byIndexes = function (indexes) {
+        return array_get_and_remove_by_indexes_1.getAndRemoveByIndexes(indexes, this.data);
     };
     PublicArrayItemGetterRemover.prototype.head = function (numItemsToRemove) {
         return getAndRemoveHead_1.getAndRemoveHead(numItemsToRemove, this.data);

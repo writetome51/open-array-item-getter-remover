@@ -15,12 +15,20 @@ else console.log('test 1 FAILED');
 if (getAndRemove.data.length === 12 && getAndRemove.data[11] === 9) console.log('test 1A passed');
 else console.log('test 1A FAILED');
 
+// Test 1B
+result = getAndRemove.byIndexes([-1, 0, -3]);
+if (arraysMatch(result, [1, 7, 9])) console.log('test 1B passed');
+else console.log('test 1B FAILED');
+
+
 // Test 2
 if (arraysMatch(otherArr, getAndRemove.data)) console.log('test 2 passed');
 else console.log('test 2 FAILED');
 
 
 // Test 3
+getAndRemove.data = [1, 1, 2, 3, 3, 4, 5, 5, 6, 7, 8, 9, 10];
+otherArr = getAndRemove.data;
 result = getAndRemove.head(3);
 if (arraysMatch(result, [1, 1, 2])) console.log('test 3 passed');
 else console.log('test 3 FAILED');

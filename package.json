@@ -1,6 +1,6 @@
 {
   "name": "@writetome51/public-array-item-getter-remover",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "an array-manipulating typescript/javascript class that removes and returns items in the array",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,7 +35,8 @@
     "@writetome51/array-get-and-remove-adjacent-to-value": "latest",
     "@writetome51/array-get-and-remove-between": "latest",
     "@writetome51/array-get-and-remove-head-tail": "latest",
-    "@writetome51/array-get-and-remove-item": "latest",
+    "@writetome51/array-get-and-remove-by-index": "latest",
+    "@writetome51/array-get-and-remove-by-indexes": "latest",
     "@writetome51/array-get-and-remove-all-after": "latest",
     "@writetome51/array-get-and-remove-all-before": "latest",
     "@writetome51/array-get-and-remove-filtered-results": "latest",

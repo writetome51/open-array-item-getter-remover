@@ -10,6 +10,9 @@ export declare class PublicArrayItemGetterRemover extends PublicArrayContainer {
 	byIndex(index: any): any;
 
 
+	byIndexes(indexes: any): any[];
+
+
 	head(numItemsToRemove: any): any[];
 
 
@@ -49,5 +52,7 @@ export declare class PublicArrayItemGetterRemover extends PublicArrayContainer {
 	byTest(testFunction: (currentValue: any, currentIndex?: any, array?: any) => boolean): IValueIndexPair[];
 
 
-	byType(type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'): IValueIndexPair[];
+	byType(
+		type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'
+	): IValueIndexPair[];
 }

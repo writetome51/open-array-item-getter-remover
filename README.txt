@@ -18,8 +18,12 @@ PublicArrayItemGetterRemover has several methods that both remove and return ite
 the array.  These are all of them:
 
 
-    // index can be negative or positive.
+	// index can be negative or positive.
 	byIndex(index): any
+
+
+	// indexes can be negative or positive.
+	byIndexes(indexes): any[]
 
 
 	head(numItemsToRemove): any[]
@@ -58,7 +62,7 @@ the array.  These are all of them:
 
     	 {value: any,  index: number}
 
-    Each one represents a removed item.
+   	Each one represents a removed item.
     ************/
 
     // Gets and removes any value that passes test:

@@ -9,6 +9,7 @@ import { getAndRemoveBetween } from '@writetome51/array-get-and-remove-between';
 import { getAndRemoveHead } from '@writetome51/array-get-and-remove-head-tail/getAndRemoveHead';
 import { getAndRemoveTail } from '@writetome51/array-get-and-remove-head-tail/getAndRemoveTail';
 import { getAndRemoveByIndex } from '@writetome51/array-get-and-remove-by-index';
+import { getAndRemoveByIndexes } from '@writetome51/array-get-and-remove-by-indexes';
 import { getAndRemoveAllAfterFirst }
 	from '@writetome51/array-get-and-remove-all-after/getAndRemoveAllAfterFirst';
 import { getAndRemoveAllAfterLast }
@@ -36,6 +37,12 @@ export class PublicArrayItemGetterRemover extends PublicArrayContainer {
 	// index can be negative or positive.
 	byIndex(index): any {
 		return getAndRemoveByIndex(index, this.data);
+	}
+
+
+	// indexes can be negative or positive.
+	byIndexes(indexes): any[] {
+		return getAndRemoveByIndexes(indexes, this.data);
 	}
 
 
