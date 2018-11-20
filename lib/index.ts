@@ -1,29 +1,23 @@
-import { isArray } from 'basic-data-handling/isArray_notArray';
 import { errorIfNotString } from 'basic-data-handling/errorIfNotString';
-import { IAdjacentToValueInfo } from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
-import { IValueIndexPair } from 'value-index-pair-interface/IValueIndexPair';
-import { getAndRemoveAdjacentAt } from '@writetome51/array-get-and-remove-adjacent-at/getAndRemoveAdjacentAt';
-import { getAndRemoveAdjacentToValue }
-	from '@writetome51/array-get-and-remove-adjacent-to-value/getAndRemoveAdjacentToValue';
+import { getAndRemoveAdjacentAt } from '@writetome51/array-get-and-remove-adjacent-at';
+import { getAndRemoveAdjacentToValue } from '@writetome51/array-get-and-remove-adjacent-to-value';
+import { getAndRemoveAllAfterFirst, getAndRemoveAllAfterLast }
+	from '@writetome51/array-get-and-remove-all-after';
+import { getAndRemoveAllBeforeFirst, getAndRemoveAllBeforeLast }
+	from '@writetome51/array-get-and-remove-all-before';
 import { getAndRemoveBetween } from '@writetome51/array-get-and-remove-between';
-import { getAndRemoveHead } from '@writetome51/array-get-and-remove-head-tail/getAndRemoveHead';
-import { getAndRemoveTail } from '@writetome51/array-get-and-remove-head-tail/getAndRemoveTail';
+import { getAndRemoveHead, getAndRemoveTail } from '@writetome51/array-get-and-remove-head-tail';
 import { getAndRemoveByIndex } from '@writetome51/array-get-and-remove-by-index';
 import { getAndRemoveByIndexes } from '@writetome51/array-get-and-remove-by-indexes';
-import { getAndRemoveAllAfterFirst }
-	from '@writetome51/array-get-and-remove-all-after/getAndRemoveAllAfterFirst';
-import { getAndRemoveAllAfterLast }
-	from '@writetome51/array-get-and-remove-all-after/getAndRemoveAllAfterLast';
-import { getAndRemoveAllBeforeFirst }
-	from '@writetome51/array-get-and-remove-all-before/getAndRemoveAllBeforeFirst';
-import { getAndRemoveAllBeforeLast }
-	from '@writetome51/array-get-and-remove-all-before/getAndRemoveAllBeforeLast';
 import { getAndRemoveFilteredResults } from '@writetome51/array-get-and-remove-filtered-results';
 import { getAndRemoveDuplicates } from '@writetome51/array-get-and-remove-duplicates';
+import { IAdjacentToValueInfo } from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
+import { isArray } from 'basic-data-handling/isArray_notArray';
+import { IValueIndexPair } from 'value-index-pair-interface/IValueIndexPair';
 import { PublicArrayContainer } from '@writetome51/public-array-container';
 
 
-export class PublicArrayItemGetterRemover extends PublicArrayContainer {
+export class PublicArrayGetterRemover extends PublicArrayContainer {
 
 
 	constructor(data: any[] = []) {
@@ -56,6 +50,7 @@ export class PublicArrayItemGetterRemover extends PublicArrayContainer {
 	}
 
 
+	// Returns middle of array, between numItemsToIgnoreAtEachEnd
 	between(numItemsToKeepAtEachEnd): any[] {
 		return getAndRemoveBetween(numItemsToKeepAtEachEnd, this.data);
 	}
@@ -68,10 +63,26 @@ export class PublicArrayItemGetterRemover extends PublicArrayContainer {
 	}
 
 
-	// info = {value: anyExceptObject,  offset: integer,  howMany: integer greater than zero}
 	adjacentToValue(info: IAdjacentToValueInfo): any[] {
 		return getAndRemoveAdjacentToValue(info, this.data);
 	}
+	/********
+	 Explanation of adjacentToValue(info: IAdjacentToValueInfo): any[]
+	 Removes and returns adjacent items including, or near, a particular value.
+	 Only applies to the first instance of value found in array.
+	 The parameter 'info' is an object that looks like this:
+	 {
+            value: any except object (the value to search for in the array),
+            offset: integer (tells function where, in relation to value, to begin selecting adjacent
+            		items to remove/return.  If offset is zero, the selection will begin with value.)
+            howMany: integer greater than zero (it's how many adjacent items to remove/return)
+		}
+
+	 Example:
+	 let getAndRemove = new PublicArrayGetterRemover( [1,2,3,4,5,6,7,8,9,10] );
+	 let numbers = getAndRemove.adjacentToValue({value:5, offset: -2, howMany:3});
+	 // numbers is now [3,4,5].  getAndRemove.data is now [1,2,6,7,8,9,10]
+	 *********/
 
 
 	// For all the functions below, the parameter 'value' cannot be object.
@@ -96,6 +107,7 @@ export class PublicArrayItemGetterRemover extends PublicArrayContainer {
 	}
 
 
+	// returns every instance of a duplicate, so you may get multiple instances.
 	duplicates(): any[] {
 		return getAndRemoveDuplicates(this.data);
 	}

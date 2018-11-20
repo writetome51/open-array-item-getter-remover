@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("./index");
 var arrays_match_1 = require("@writetome51/arrays-match");
-var getAndRemove = new index_1.PublicArrayItemGetterRemover([1, 1, 2, 3, 3, 4, 5, 5, 6, 7, 8, 9, 10]);
+var getAndRemove = new index_1.PublicArrayGetterRemover([1, 1, 2, 3, 3, 4, 5, 5, 6, 7, 8, 9, 10]);
 var otherArr = getAndRemove.data;
 // Test 1
 var result = getAndRemove.byIndex(-1);

@@ -1,6 +1,6 @@
 {
-  "name": "@writetome51/public-array-item-getter-remover",
-  "version": "1.1.2",
+  "name": "@writetome51/public-array-getter-remover",
+  "version": "1.0.0",
   "description": "an array-manipulating typescript/javascript class that removes and returns items in the array",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/writetome51/public-array-item-getter-remover.git"
+    "url": "git+https://github.com/writetome51/public-array-getter-remover.git"
   },
   "keywords": [
     "array",
@@ -24,27 +24,27 @@
   "author": "Steve Thompson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/writetome51/public-array-item-getter-remover/issues"
+    "url": "https://github.com/writetome51/public-array-getter-remover/issues"
   },
-  "homepage": "https://github.com/writetome51/public-array-item-getter-remover#readme",
+  "homepage": "https://github.com/writetome51/public-array-getter-remover#readme",
   "devDependencies": {
-    "@writetome51/arrays-match": "latest",
+    "@writetome51/arrays-match": "~1.0.3",
     "typescript": "^3.0.1"
   },
   "dependencies": {
-    "basic-data-handling": "latest",
-    "value-index-pair-interface": "latest",
-    "@writetome51/adjacent-to-value-info-interface": "latest",
-    "@writetome51/array-get-and-remove-adjacent-at": "latest",
-    "@writetome51/array-get-and-remove-adjacent-to-value": "latest",
-    "@writetome51/array-get-and-remove-between": "latest",
-    "@writetome51/array-get-and-remove-head-tail": "latest",
-    "@writetome51/array-get-and-remove-by-index": "latest",
-    "@writetome51/array-get-and-remove-by-indexes": "latest",
-    "@writetome51/array-get-and-remove-all-after": "latest",
-    "@writetome51/array-get-and-remove-all-before": "latest",
-    "@writetome51/array-get-and-remove-filtered-results": "latest",
-    "@writetome51/array-get-and-remove-duplicates": "latest",
-    "@writetome51/public-array-container": "latest"
+    "basic-data-handling": "~1.0.13",
+    "value-index-pair-interface": "~1.0.1",
+    "@writetome51/adjacent-to-value-info-interface": "~1.0.2",
+    "@writetome51/array-get-and-remove-adjacent-at": "~1.0.2",
+    "@writetome51/array-get-and-remove-adjacent-to-value": "~1.0.4",
+    "@writetome51/array-get-and-remove-between": "~1.0.2",
+    "@writetome51/array-get-and-remove-head-tail": "~1.0.2",
+    "@writetome51/array-get-and-remove-by-index": "~1.0.1",
+    "@writetome51/array-get-and-remove-by-indexes": "~1.0.1",
+    "@writetome51/array-get-and-remove-all-after": "~1.1.0",
+    "@writetome51/array-get-and-remove-all-before": "~1.1.0",
+    "@writetome51/array-get-and-remove-filtered-results": "~2.0.4",
+    "@writetome51/array-get-and-remove-duplicates": "~1.0.4",
+    "@writetome51/public-array-container": "~1.0.4"
   }
 }
