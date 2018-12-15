@@ -1,4 +1,5 @@
 import { errorIfNotString } from 'basic-data-handling/errorIfNotString';
+import { isArray } from 'basic-data-handling/isArray_notArray';
 import { getAndRemoveAdjacentAt } from '@writetome51/array-get-and-remove-adjacent-at';
 import { getAndRemoveAdjacentToValue } from '@writetome51/array-get-and-remove-adjacent-to-value';
 import { getAndRemoveAllAfterFirst, getAndRemoveAllAfterLast }
@@ -12,7 +13,6 @@ import { getAndRemoveByIndexes } from '@writetome51/array-get-and-remove-by-inde
 import { getAndRemoveFilteredResults } from '@writetome51/array-get-and-remove-filtered-results';
 import { getAndRemoveDuplicates } from '@writetome51/array-get-and-remove-duplicates';
 import { IAdjacentToValueInfo } from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
-import { isArray } from 'basic-data-handling/isArray_notArray';
 import { IValueIndexPair } from 'value-index-pair-interface/IValueIndexPair';
 import { PublicArrayContainer } from '@writetome51/public-array-container';
 
@@ -25,16 +25,18 @@ export class PublicArrayGetterRemover extends PublicArrayContainer {
 	}
 
 
-	// These functions modify the array and return the removed data:
+	// These functions remove items from the array and return them.
 
 
 	// index can be negative or positive.
+
 	byIndex(index): any {
 		return getAndRemoveByIndex(index, this.data);
 	}
 
 
 	// indexes can be negative or positive.
+
 	byIndexes(indexes): any[] {
 		return getAndRemoveByIndexes(indexes, this.data);
 	}
@@ -51,6 +53,7 @@ export class PublicArrayGetterRemover extends PublicArrayContainer {
 
 
 	// Returns middle of array, between numItemsToIgnoreAtEachEnd
+
 	between(numItemsToKeepAtEachEnd): any[] {
 		return getAndRemoveBetween(numItemsToKeepAtEachEnd, this.data);
 	}
@@ -61,6 +64,9 @@ export class PublicArrayGetterRemover extends PublicArrayContainer {
 	adjacentAt(startingIndex, numItemsToRemove): any[] {
 		return getAndRemoveAdjacentAt(startingIndex, numItemsToRemove, this.data);
 	}
+
+
+	// For all the functions below, the parameter 'value' cannot be object.
 
 
 	adjacentToValue(info: IAdjacentToValueInfo): any[] {
@@ -85,8 +91,6 @@ export class PublicArrayGetterRemover extends PublicArrayContainer {
 	 *********/
 
 
-	// For all the functions below, the parameter 'value' cannot be object.
-
 	allAfterFirst(value: any): any[] {
 		return getAndRemoveAllAfterFirst(value, this.data);
 	}
@@ -107,7 +111,8 @@ export class PublicArrayGetterRemover extends PublicArrayContainer {
 	}
 
 
-	// returns every instance of a duplicate, so you may get multiple instances.
+	// removes and returns every instance of a duplicate, so you may get multiple instances.
+
 	duplicates(): any[] {
 		return getAndRemoveDuplicates(this.data);
 	}
@@ -119,6 +124,7 @@ export class PublicArrayGetterRemover extends PublicArrayContainer {
 
 	 Each one represents a removed item.
 	 ************/
+
 
 	byTest(testFunction: (currentValue, currentIndex?, array?) => boolean): IValueIndexPair[] {
 		return getAndRemoveFilteredResults(testFunction, this.data);

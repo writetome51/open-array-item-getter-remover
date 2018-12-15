@@ -4,25 +4,26 @@ import { PublicArrayContainer } from '@writetome51/public-array-container';
 
 
 export declare class PublicArrayGetterRemover extends PublicArrayContainer {
+
 	constructor(data?: any[]);
 
 
-	byIndex(index: any): any;
+	byIndex(index: number): any;
 
 
-	byIndexes(indexes: any): any[];
+	byIndexes(indexes: number[]): any[];
 
 
-	head(numItemsToRemove: any): any[];
+	head(numItemsToRemove: number): any[];
 
 
-	tail(numItemsToRemove: any): any[];
+	tail(numItemsToRemove: number): any[];
 
 
-	between(numItemsToKeepAtEachEnd: any): any[];
+	between(numItemsToKeepAtEachEnd: number): any[];
 
 
-	adjacentAt(startingIndex: any, numItemsToRemove: any): any[];
+	adjacentAt(startingIndex: number, numItemsToRemove: number): any[];
 
 
 	adjacentToValue(info: IAdjacentToValueInfo): any[];
@@ -36,8 +37,7 @@ export declare class PublicArrayGetterRemover extends PublicArrayContainer {
             offset: integer (tells function where, in relation to value, to begin selecting adjacent
                     items to remove/return.  If offset is zero, the selection will begin with value.)
             howMany: integer greater than zero (it's how many adjacent items to remove/return)
-        }
-
+	 }
 	 Example:
 	 let getAndRemove = new PublicArrayGetterRemover( [1,2,3,4,5,6,7,8,9,10] );
 	 let numbers = getAndRemove.adjacentToValue({value:5, offset: -2, howMany:3});
@@ -66,8 +66,12 @@ export declare class PublicArrayGetterRemover extends PublicArrayContainer {
 
 	 Each one represents a removed item.
 	 ************/
-	byTest(testFunction: (currentValue: any, currentIndex?: any, array?: any) => boolean): IValueIndexPair[];
+	byTest(
+		testFunction: (currentValue: any, currentIndex?: number, array?: any[]) => boolean
+	): IValueIndexPair[];
 
 
-	byType(type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'): IValueIndexPair[];
+	byType(
+		type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'
+	): IValueIndexPair[];
 }

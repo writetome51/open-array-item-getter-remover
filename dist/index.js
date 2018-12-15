@@ -14,6 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var errorIfNotString_1 = require("basic-data-handling/errorIfNotString");
+var isArray_notArray_1 = require("basic-data-handling/isArray_notArray");
 var array_get_and_remove_adjacent_at_1 = require("@writetome51/array-get-and-remove-adjacent-at");
 var array_get_and_remove_adjacent_to_value_1 = require("@writetome51/array-get-and-remove-adjacent-to-value");
 var array_get_and_remove_all_after_1 = require("@writetome51/array-get-and-remove-all-after");
@@ -24,7 +25,6 @@ var array_get_and_remove_by_index_1 = require("@writetome51/array-get-and-remove
 var array_get_and_remove_by_indexes_1 = require("@writetome51/array-get-and-remove-by-indexes");
 var array_get_and_remove_filtered_results_1 = require("@writetome51/array-get-and-remove-filtered-results");
 var array_get_and_remove_duplicates_1 = require("@writetome51/array-get-and-remove-duplicates");
-var isArray_notArray_1 = require("basic-data-handling/isArray_notArray");
 var public_array_container_1 = require("@writetome51/public-array-container");
 var PublicArrayGetterRemover = /** @class */ (function (_super) {
     __extends(PublicArrayGetterRemover, _super);
@@ -32,7 +32,7 @@ var PublicArrayGetterRemover = /** @class */ (function (_super) {
         if (data === void 0) { data = []; }
         return _super.call(this, data) || this;
     }
-    // These functions modify the array and return the removed data:
+    // These functions remove items from the array and return them.
     // index can be negative or positive.
     PublicArrayGetterRemover.prototype.byIndex = function (index) {
         return array_get_and_remove_by_index_1.getAndRemoveByIndex(index, this.data);
@@ -55,6 +55,7 @@ var PublicArrayGetterRemover = /** @class */ (function (_super) {
     PublicArrayGetterRemover.prototype.adjacentAt = function (startingIndex, numItemsToRemove) {
         return array_get_and_remove_adjacent_at_1.getAndRemoveAdjacentAt(startingIndex, numItemsToRemove, this.data);
     };
+    // For all the functions below, the parameter 'value' cannot be object.
     PublicArrayGetterRemover.prototype.adjacentToValue = function (info) {
         return array_get_and_remove_adjacent_to_value_1.getAndRemoveAdjacentToValue(info, this.data);
     };
@@ -75,7 +76,6 @@ var PublicArrayGetterRemover = /** @class */ (function (_super) {
      let numbers = getAndRemove.adjacentToValue({value:5, offset: -2, howMany:3});
      // numbers is now [3,4,5].  getAndRemove.data is now [1,2,6,7,8,9,10]
      *********/
-    // For all the functions below, the parameter 'value' cannot be object.
     PublicArrayGetterRemover.prototype.allAfterFirst = function (value) {
         return array_get_and_remove_all_after_1.getAndRemoveAllAfterFirst(value, this.data);
     };
@@ -88,7 +88,7 @@ var PublicArrayGetterRemover = /** @class */ (function (_super) {
     PublicArrayGetterRemover.prototype.allBeforeLast = function (value) {
         return array_get_and_remove_all_before_1.getAndRemoveAllBeforeLast(value, this.data);
     };
-    // returns every instance of a duplicate, so you may get multiple instances.
+    // removes and returns every instance of a duplicate, so you may get multiple instances.
     PublicArrayGetterRemover.prototype.duplicates = function () {
         return array_get_and_remove_duplicates_1.getAndRemoveDuplicates(this.data);
     };

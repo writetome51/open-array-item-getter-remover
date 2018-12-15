@@ -11,6 +11,7 @@ let result = getAndRemove.byIndex(-1);
 if (result === 10) console.log('test 1 passed');
 else console.log('test 1 FAILED');
 
+
 // Test 1A
 if (getAndRemove.data.length === 12 && getAndRemove.data[11] === 9) console.log('test 1A passed');
 else console.log('test 1A FAILED');
@@ -32,6 +33,7 @@ otherArr = getAndRemove.data;
 result = getAndRemove.head(3);
 if (arraysMatch(result, [1, 1, 2])) console.log('test 3 passed');
 else console.log('test 3 FAILED');
+
 
 
 // Test 4
@@ -185,3 +187,4 @@ else console.log('test 25 FAILED');
 // Test 26
 if (arraysMatch(otherArr, getAndRemove.data)) console.log('test 26 passed');
 else console.log('test 26 FAILED');
+
