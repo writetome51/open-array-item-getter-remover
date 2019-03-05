@@ -1,6 +1,6 @@
 {
   "name": "@writetome51/public-array-getter-remover",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "an array-manipulating typescript/javascript class that removes and returns items in the array",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -28,23 +28,22 @@
   },
   "homepage": "https://github.com/writetome51/public-array-getter-remover#readme",
   "devDependencies": {
-    "@writetome51/arrays-match": "~1.0.3",
-    "typescript": "^3.0.1"
+    "@writetome51/arrays-match": "~1.0.5"
   },
   "dependencies": {
-    "basic-data-handling": "~1.0.13",
+    "basic-data-handling": "~1.0.15",
     "value-index-pair-interface": "~1.0.1",
     "@writetome51/adjacent-to-value-info-interface": "~1.0.2",
-    "@writetome51/array-get-and-remove-adjacent-at": "~1.0.2",
-    "@writetome51/array-get-and-remove-adjacent-to-value": "~1.0.4",
-    "@writetome51/array-get-and-remove-between": "~1.0.2",
-    "@writetome51/array-get-and-remove-head-tail": "~1.0.2",
-    "@writetome51/array-get-and-remove-by-index": "~1.0.1",
-    "@writetome51/array-get-and-remove-by-indexes": "~1.0.1",
-    "@writetome51/array-get-and-remove-all-after": "~1.1.0",
-    "@writetome51/array-get-and-remove-all-before": "~1.1.0",
-    "@writetome51/array-get-and-remove-filtered-results": "~2.0.4",
-    "@writetome51/array-get-and-remove-duplicates": "~1.0.4",
-    "@writetome51/public-array-container": "~2.0.1"
+    "@writetome51/array-get-and-remove-adjacent-at": "~1.0.4",
+    "@writetome51/array-get-and-remove-adjacent-to-value": "~1.0.6",
+    "@writetome51/array-get-and-remove-between": "~1.0.4",
+    "@writetome51/array-get-and-remove-head-tail": "~1.0.4",
+    "@writetome51/array-get-and-remove-by-index": "~1.0.3",
+    "@writetome51/array-get-and-remove-by-indexes": "~1.0.3",
+    "@writetome51/array-get-and-remove-all-after": "~1.1.2",
+    "@writetome51/array-get-and-remove-all-before": "~1.1.2",
+    "@writetome51/array-get-and-remove-by-test": "~1.0.0",
+    "@writetome51/array-get-and-remove-duplicates": "~1.0.5",
+    "@writetome51/public-array-container": "~2.0.2"
   }
 }

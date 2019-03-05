@@ -10,7 +10,7 @@ import { getAndRemoveBetween } from '@writetome51/array-get-and-remove-between';
 import { getAndRemoveHead, getAndRemoveTail } from '@writetome51/array-get-and-remove-head-tail';
 import { getAndRemoveByIndex } from '@writetome51/array-get-and-remove-by-index';
 import { getAndRemoveByIndexes } from '@writetome51/array-get-and-remove-by-indexes';
-import { getAndRemoveFilteredResults } from '@writetome51/array-get-and-remove-filtered-results';
+import { getAndRemoveByTest } from '@writetome51/array-get-and-remove-by-test';
 import { getAndRemoveDuplicates } from '@writetome51/array-get-and-remove-duplicates';
 import { IAdjacentToValueInfo } from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
 import { IValueIndexPair } from 'value-index-pair-interface/IValueIndexPair';
@@ -67,6 +67,7 @@ export class PublicArrayGetterRemover extends PublicArrayContainer {
 
 
 	// For all the functions below, the parameter 'value' cannot be object.
+	// It can be an array, as long as the array doesn't contain objects.
 
 
 	adjacentToValue(info: IAdjacentToValueInfo): any[] {
@@ -82,7 +83,7 @@ export class PublicArrayGetterRemover extends PublicArrayContainer {
             offset: integer (tells function where, in relation to value, to begin selecting adjacent
             		items to remove/return.  If offset is zero, the selection will begin with value.)
             howMany: integer greater than zero (it's how many adjacent items to remove/return)
-		}
+	 }
 
 	 Example:
 	 let getAndRemove = new PublicArrayGetterRemover( [1,2,3,4,5,6,7,8,9,10] );
@@ -120,14 +121,15 @@ export class PublicArrayGetterRemover extends PublicArrayContainer {
 
 	/************
 	 These last 2 methods both return an array of IValueIndexPairs.  A IValueIndexPair looks like this:
+
 	 {value: any,  index: number}
 
-	 Each one represents a removed item.
+	 It represents a removed item.
 	 ************/
 
 
 	byTest(testFunction: (currentValue, currentIndex?, array?) => boolean): IValueIndexPair[] {
-		return getAndRemoveFilteredResults(testFunction, this.data);
+		return getAndRemoveByTest(testFunction, this.data);
 	}
 
 

@@ -23,7 +23,7 @@ var array_get_and_remove_between_1 = require("@writetome51/array-get-and-remove-
 var array_get_and_remove_head_tail_1 = require("@writetome51/array-get-and-remove-head-tail");
 var array_get_and_remove_by_index_1 = require("@writetome51/array-get-and-remove-by-index");
 var array_get_and_remove_by_indexes_1 = require("@writetome51/array-get-and-remove-by-indexes");
-var array_get_and_remove_filtered_results_1 = require("@writetome51/array-get-and-remove-filtered-results");
+var array_get_and_remove_by_test_1 = require("@writetome51/array-get-and-remove-by-test");
 var array_get_and_remove_duplicates_1 = require("@writetome51/array-get-and-remove-duplicates");
 var public_array_container_1 = require("@writetome51/public-array-container");
 var PublicArrayGetterRemover = /** @class */ (function (_super) {
@@ -56,6 +56,7 @@ var PublicArrayGetterRemover = /** @class */ (function (_super) {
         return array_get_and_remove_adjacent_at_1.getAndRemoveAdjacentAt(startingIndex, numItemsToRemove, this.data);
     };
     // For all the functions below, the parameter 'value' cannot be object.
+    // It can be an array, as long as the array doesn't contain objects.
     PublicArrayGetterRemover.prototype.adjacentToValue = function (info) {
         return array_get_and_remove_adjacent_to_value_1.getAndRemoveAdjacentToValue(info, this.data);
     };
@@ -69,7 +70,7 @@ var PublicArrayGetterRemover = /** @class */ (function (_super) {
             offset: integer (tells function where, in relation to value, to begin selecting adjacent
                     items to remove/return.  If offset is zero, the selection will begin with value.)
             howMany: integer greater than zero (it's how many adjacent items to remove/return)
-        }
+     }
 
      Example:
      let getAndRemove = new PublicArrayGetterRemover( [1,2,3,4,5,6,7,8,9,10] );
@@ -94,12 +95,13 @@ var PublicArrayGetterRemover = /** @class */ (function (_super) {
     };
     /************
      These last 2 methods both return an array of IValueIndexPairs.  A IValueIndexPair looks like this:
+
      {value: any,  index: number}
 
-     Each one represents a removed item.
+     It represents a removed item.
      ************/
     PublicArrayGetterRemover.prototype.byTest = function (testFunction) {
-        return array_get_and_remove_filtered_results_1.getAndRemoveFilteredResults(testFunction, this.data);
+        return array_get_and_remove_by_test_1.getAndRemoveByTest(testFunction, this.data);
     };
     PublicArrayGetterRemover.prototype.byType = function (type) {
         errorIfNotString_1.errorIfNotString(type);

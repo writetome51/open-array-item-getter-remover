@@ -3,37 +3,20 @@
 An array-manipulating TypeScript/JavaScript class with methods that both remove   
 and return items from the array.
 
-## Installation
 
-You must have npm installed first.  Then, in the command line:
-
-```bash
-npm install @writetome51/public-array-getter-remover
+## Constructor
+```
+constructor(data? = [])  // 'data' becomes the array the class manipulates.
 ```
 
-## Loading
-
-    // if using TypeScript:
-    import {PublicArrayGetterRemover} from '@writetome51/public-array-getter-remover';
-    // if using ES5 JavaScript:
-    var PublicArrayGetterRemover = 
-	 require('@writetome51/public-array-getter-remover').PublicArrayGetterRemover;
-
-
-## Instantiation
-
-    let getAndRemove = new PublicArrayGetterRemover( [item1, item2, item3,...] );
-    // Or, instantiate with an empty array:
-    let getAndRemove = new PublicArrayGetterRemover();
-
 You can also reset the array by accessing the class `.data` property:
-
-    getAndRemove.data = [1,2,3,4,...];
-    
+```
+this.data = [1,2,3,4];
+```
 
 ## Properties
 ```
-data : any[] (read-writable) // the actual array
+data : any[]  // the actual array
 
 className: string (read-only)
 ```
@@ -60,7 +43,8 @@ adjacentAt(startingIndex, numItemsToRemove): any[]
     // Beginning at startingIndex, removes and returns adjacent numItemsToRemove.
     // startingIndex can be negative or positive.
 ```
-NOTICE:  For all the functions below, the parameter `value` cannot be an object.
+NOTICE:  For all the functions below, the parameter `value` cannot be an object.  
+It can be an array, as long as the array doesn't contain objects.
 ```
 adjacentToValue(info): any[]
     /**************
@@ -105,8 +89,11 @@ byTest(testFunction: (currentValue, currentIndex?, array?) => boolean): IValueIn
 byType(
     type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'
 ): IValueIndexPair[]
-// removes and returns any item of the passed type.
-
+    // removes and returns any item of the passed `type`.
+``` 
+The methods below are not important to know about in order to use this  
+class.  They're inherited from [BaseClass](https://github.com/writetome51/typescript-base-class#baseclass) .
+``` 
 protected   _createGetterAndOrSetterForEach(
 		propertyNames: string[],
 		configuration: IGetterSetterConfiguration
@@ -149,6 +136,24 @@ protected   _runMethod_and_returnThis(
 ## Inheritance Chain
 
 PublicArrayGetterRemover<--[PublicArrayContainer](https://github.com/writetome51/public-array-container#publicarraycontainer)<--[BaseClass](https://github.com/writetome51/typescript-base-class#baseclass)
+
+
+## Installation
+
+You must have npm installed first.  Then, in the command line:
+
+```bash
+npm install @writetome51/public-array-getter-remover
+```
+
+## Loading
+
+    // if using TypeScript:
+    import {PublicArrayGetterRemover} from '@writetome51/public-array-getter-remover';
+    // if using ES5 JavaScript:
+    var PublicArrayGetterRemover = 
+	 require('@writetome51/public-array-getter-remover').PublicArrayGetterRemover;
+
 
 
 ## License
