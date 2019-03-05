@@ -63,16 +63,16 @@ adjacentToValue(info): any[]
         // numbers is now [3,4,5].  getAndRemove.data is now [1,2,6,7,8,9,10]
     **************/
             
-allAfterFirst(value: any): any[]
+allAfterFirst(value): any[]
     // removes and returns everything after first instance of value
 
-allBeforeFirst(value: any): any[]
+allBeforeFirst(value): any[]
     // removes and returns everything before first instance of value
 
-allAfterLast(value: any): any[]
+allAfterLast(value): any[]
     // removes and returns everything after last instance of value
 
-allBeforeLast(value: any): any[]
+allBeforeLast(value): any[]
     // removes and returns everything before last instance of value
 
 duplicates(): any[]
@@ -84,12 +84,12 @@ A IValueIndexPair looks like this:  `{value: any,  index: integer}`
 It represents an array item.
 ```
 byTest(testFunction: (currentValue, currentIndex?, array?) => boolean): IValueIndexPair[]
-    // removes and returns any item that passes test.
+    // removes and returns any item that passes testFunction.
 
 byType(
     type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'
 ): IValueIndexPair[]
-    // removes and returns any item of the passed `type`.
+    // removes and returns any item of the passed type.
 ``` 
 The methods below are not important to know about in order to use this  
 class.  They're inherited from [BaseClass](https://github.com/writetome51/typescript-base-class#baseclass) .
