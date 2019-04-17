@@ -1,5 +1,3 @@
-import { errorIfNotString } from 'basic-data-handling/errorIfNotString';
-import { isArray } from 'basic-data-handling/isArray_notArray';
 import { getAndRemoveAdjacentAt } from '@writetome51/array-get-and-remove-adjacent-at';
 import { getAndRemoveAdjacentToValue } from '@writetome51/array-get-and-remove-adjacent-to-value';
 import { getAndRemoveAllAfterFirst, getAndRemoveAllAfterLast }
@@ -15,6 +13,8 @@ import { getAndRemoveDuplicates } from '@writetome51/array-get-and-remove-duplic
 import { IAdjacentToValueInfo } from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
 import { IValueIndexPair } from 'value-index-pair-interface/IValueIndexPair';
 import { PublicArrayContainer } from '@writetome51/public-array-container';
+import { _publicArrayContainer_byType_implementation }
+	from '@writetome51/public-array-container-by-type-implementation';
 
 
 export class PublicArrayGetterRemover extends PublicArrayContainer {
@@ -134,14 +134,10 @@ export class PublicArrayGetterRemover extends PublicArrayContainer {
 
 
 	byType(
-		type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'
+		type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined' | 'null'
 	): IValueIndexPair[] {
-		errorIfNotString(type);
-		// @ts-ignore
-		type = type.toLowerCase();
-		if (type === 'array') return this.byTest((item) => isArray(item));
 
-		else return this.byTest((item) => typeof item === type);
+		return _publicArrayContainer_byType_implementation(type, this);
 	}
 
 

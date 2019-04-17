@@ -181,6 +181,34 @@ if (result.length === 2 && result[0]['value'] === 'a' && result[1]['value'] === 
     console.log('test 25 passed');
 else
     console.log('test 25 FAILED');
+// Test 25A
+getAndRemove.data = [1, '', false, { prop1: 1 }, [], null, undefined];
+otherArr = getAndRemove.data;
+result = getAndRemove.byType('object');
+if (result.length === 2 &&
+    result[0]['value'].prop1 === 1 && result[0]['index'] === 3 &&
+    result[1]['value'].length === 0 && result[1]['index'] === 4)
+    console.log('test 25A passed');
+else
+    console.log('test 25A FAILED');
+// Test 25B
+getAndRemove.data = [1, '', false, { prop1: 1 }, [], null, undefined];
+otherArr = getAndRemove.data;
+result = getAndRemove.byType('null');
+if (result.length === 1 &&
+    result[0]['value'] === null && result[0]['index'] === 5)
+    console.log('test 25B passed');
+else
+    console.log('test 25B FAILED');
+// Test 25B
+getAndRemove.data = [1, '', false, { prop1: 1 }, [], null, undefined];
+otherArr = getAndRemove.data;
+result = getAndRemove.byType('undefined');
+if (result.length === 1 &&
+    result[0]['value'] === undefined && result[0]['index'] === 6)
+    console.log('test 25C passed');
+else
+    console.log('test 25C FAILED');
 // Test 26
 if (arrays_match_1.arraysMatch(otherArr, getAndRemove.data))
     console.log('test 26 passed');

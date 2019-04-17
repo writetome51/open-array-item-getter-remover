@@ -72,6 +72,6 @@ export declare class PublicArrayGetterRemover extends PublicArrayContainer {
 
 
 	byType(
-		type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined'
+		type: 'object' | 'array' | 'number' | 'string' | 'boolean' | 'function' | 'undefined' | 'null'
 	): IValueIndexPair[];
 }

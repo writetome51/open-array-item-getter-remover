@@ -13,8 +13,6 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var errorIfNotString_1 = require("basic-data-handling/errorIfNotString");
-var isArray_notArray_1 = require("basic-data-handling/isArray_notArray");
 var array_get_and_remove_adjacent_at_1 = require("@writetome51/array-get-and-remove-adjacent-at");
 var array_get_and_remove_adjacent_to_value_1 = require("@writetome51/array-get-and-remove-adjacent-to-value");
 var array_get_and_remove_all_after_1 = require("@writetome51/array-get-and-remove-all-after");
@@ -26,6 +24,7 @@ var array_get_and_remove_by_indexes_1 = require("@writetome51/array-get-and-remo
 var array_get_and_remove_by_test_1 = require("@writetome51/array-get-and-remove-by-test");
 var array_get_and_remove_duplicates_1 = require("@writetome51/array-get-and-remove-duplicates");
 var public_array_container_1 = require("@writetome51/public-array-container");
+var public_array_container_by_type_implementation_1 = require("@writetome51/public-array-container-by-type-implementation");
 var PublicArrayGetterRemover = /** @class */ (function (_super) {
     __extends(PublicArrayGetterRemover, _super);
     function PublicArrayGetterRemover(data) {
@@ -104,13 +103,7 @@ var PublicArrayGetterRemover = /** @class */ (function (_super) {
         return array_get_and_remove_by_test_1.getAndRemoveByTest(testFunction, this.data);
     };
     PublicArrayGetterRemover.prototype.byType = function (type) {
-        errorIfNotString_1.errorIfNotString(type);
-        // @ts-ignore
-        type = type.toLowerCase();
-        if (type === 'array')
-            return this.byTest(function (item) { return isArray_notArray_1.isArray(item); });
-        else
-            return this.byTest(function (item) { return typeof item === type; });
+        return public_array_container_by_type_implementation_1._publicArrayContainer_byType_implementation(type, this);
     };
     return PublicArrayGetterRemover;
 }(public_array_container_1.PublicArrayContainer));
