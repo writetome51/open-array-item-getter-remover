@@ -5,8 +5,6 @@ import { PublicArrayContainer } from '@writetome51/public-array-container';
 
 export declare class PublicArrayGetterRemover extends PublicArrayContainer {
 
-	constructor(data?: any[]);
-
 
 	byIndex(index: number): any;
 

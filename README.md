@@ -5,17 +5,17 @@ and return items from the array.
 
 
 ## Constructor
-```
-constructor(data? = [])  // 'data' becomes the array the class manipulates.
+```ts
+constructor(data? = [])  // 'data' is assigned to this.data .
 ```
 
-You can also reset the array by accessing the class `.data` property:
-```
+You can reset the array by accessing the class `.data` property:
+```ts
 this.data = [1,2,3,4];
 ```
 
 ## Properties
-```
+```ts
 data : any[]  // the actual array
 
 className: string (read-only)
@@ -23,7 +23,10 @@ className: string (read-only)
 	
 	
 ## Methods
-```
+<details>
+<summary>view methods</summary>
+
+```ts
 byIndex(index): any
     // removes and returns item identified by index.  index can be negative or positive.
 
@@ -45,7 +48,7 @@ adjacentAt(startingIndex, numItemsToRemove): any[]
 ```
 NOTICE:  For all the functions below, the parameter `value` cannot be an object.  
 It can be an array, as long as the array doesn't contain objects.
-```
+```ts
 adjacentToValue(info): any[]
     /**************
     removes and returns adjacent items including, or near, a particular value.
@@ -82,7 +85,7 @@ duplicates(): any[]
 The next 2 methods return an array of IValueIndexPairs.   
 A IValueIndexPair looks like this:  `{value: any,  index: integer}`  
 It represents an array item.
-```
+```ts
 byTest(testFunction: (currentValue, currentIndex?, array?) => boolean): IValueIndexPair[]
     // removes and returns any item that passes testFunction.
 
@@ -96,7 +99,7 @@ byType(
 ``` 
 The methods below are not important to know about in order to use this  
 class.  They're inherited from [BaseClass](https://github.com/writetome51/typescript-base-class#baseclass) .
-``` 
+```ts
 protected   _createGetterAndOrSetterForEach(
 		propertyNames: string[],
 		configuration: IGetterSetterConfiguration
@@ -128,13 +131,14 @@ protected   _returnThis_after(voidExpression: any) : this
     // voidExpression is executed, then function returns this.
     // Even if voidExpression returns something, the returned data isn't used.
 
-protected   _runMethod_and_returnThis(
-    callingObject, 
-    method: Function, 
-    methodArgs: any[], 
-    additionalAction?: Function // takes the result returned by method as an argument.
-) : this
+protected   _errorIfPropertyHasNoValue(
+                property: string, // can contain dot-notation, i.e., 'property.subproperty'
+                propertyNameInError? = ''
+            ) : void
+    // If value of this[property] is undefined or null, it triggers fatal error:
+    // `The property "${propertyNameInError}" has no value.`
 ```
+</details>
 
 ## Inheritance Chain
 
@@ -143,20 +147,18 @@ PublicArrayGetterRemover<--[PublicArrayContainer](https://github.com/writetome51
 
 ## Installation
 
-You must have npm installed first.  Then, in the command line:
-
 ```bash
-npm install @writetome51/public-array-getter-remover
+npm i  @writetome51/public-array-getter-remover
 ```
 
 ## Loading
-
-    // if using TypeScript:
-    import {PublicArrayGetterRemover} from '@writetome51/public-array-getter-remover';
-    // if using ES5 JavaScript:
-    var PublicArrayGetterRemover = 
-	 require('@writetome51/public-array-getter-remover').PublicArrayGetterRemover;
-
+```ts
+// if using TypeScript:
+import {PublicArrayGetterRemover} from '@writetome51/public-array-getter-remover';
+// if using ES5 JavaScript:
+var PublicArrayGetterRemover = 
+	require('@writetome51/public-array-getter-remover').PublicArrayGetterRemover;
+```
 
 
 ## License

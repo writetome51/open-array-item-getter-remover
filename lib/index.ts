@@ -20,11 +20,6 @@ import { _publicArrayContainer_byType_implementation }
 export class PublicArrayGetterRemover extends PublicArrayContainer {
 
 
-	constructor(data: any[] = []) {
-		super(data);
-	}
-
-
 	// These functions remove items from the array and return them.
 
 

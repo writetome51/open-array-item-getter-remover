@@ -27,9 +27,8 @@ var public_array_container_1 = require("@writetome51/public-array-container");
 var public_array_container_by_type_implementation_1 = require("@writetome51/public-array-container-by-type-implementation");
 var PublicArrayGetterRemover = /** @class */ (function (_super) {
     __extends(PublicArrayGetterRemover, _super);
-    function PublicArrayGetterRemover(data) {
-        if (data === void 0) { data = []; }
-        return _super.call(this, data) || this;
+    function PublicArrayGetterRemover() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     // These functions remove items from the array and return them.
     // index can be negative or positive.
